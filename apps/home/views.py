@@ -14,7 +14,7 @@ def user_create(request):
     form = UserProfileForm(instance=request.user.profile)
     
     if request.method == 'POST':
-        form = UserProfileForm(request.POST)
+        form = UserProfileForm(instance=request.user.profile, data=request.POST)
         print(form)
         if form.is_valid():
             form.save()
