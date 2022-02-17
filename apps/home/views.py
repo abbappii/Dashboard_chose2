@@ -1,13 +1,26 @@
-# -*- encoding: utf-8 -*-
-"""
-Copyright (c) 2019 - present AppSeed.us
-"""
-
+from django.shortcuts import render, redirect , HttpResponse
 from django import template
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
+
+from .forms import UserProfileForm
+
+
+@login_required(login_url="/login/")
+def user_create(request):
+    
+    form = UserProfileForm(instance=request.user.profile)
+    
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST)
+        print(form)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+
+    return render(request,'home/bid_payment.html',context={'form':form})
 
 
 @login_required(login_url="/login/")

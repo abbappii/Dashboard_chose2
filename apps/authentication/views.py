@@ -7,7 +7,7 @@ Copyright (c) 2019 - present AppSeed.us
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm, SignUpForm
-
+from apps.home.models import UserProfile
 
 def login_view(request):
     form = LoginForm(request.POST or None)
@@ -39,10 +39,11 @@ def register_user(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
+
             username = form.cleaned_data.get("username")
             raw_password = form.cleaned_data.get("password1")
             user = authenticate(username=username, password=raw_password)
-
+            UserProfile.objects.create(user=user)
             msg = 'User created - please <a href="/login">login</a>.'
             success = True
 
