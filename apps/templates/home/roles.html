@@ -3,13 +3,25 @@
 
 {% block content %}
 
-<div class="card">
-  <div class="card-header">
-    <h4 class="card-title">Set Percentage</h4>
+<div class="container mt--8 pb-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-5 col-md-7">
+      <div class="card bg-secondary shadow border-0">
+        <div class="card-header bg-transparent pb-5">
+          <div class="text-muted text-left mt-2 mb-3">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Set Persentage</h4>
+              </div>
+              <div class="card-body">
+                {% crispy form %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="card-body">
-    {% crispy form %}
-  </div>
-</div>
+
 
 {% endblock %}

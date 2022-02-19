@@ -11,7 +11,11 @@ class UserProfileForm(ModelForm):
     class Meta:
         model = UserProfile
         exclude = ['user',]
-
+        
+    def __init__(self, *args, **kwargs):
+        super().__init__( *args, **kwargs)
+        self.helper = FormHelper(self)
+        self.helper.add_input(Submit('save','save'))
 
 class RolesModel(ModelForm):
     class Meta:

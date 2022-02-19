@@ -49,9 +49,10 @@ def index(request):
         instance = Roles.objects.first()
     else:
         instance = Roles.objects.create(percentage=1)
-    daily_profit = Decimal((instance.percentage/100)) * request.user.profile.balance
-    weekly_profit = daily_profit * 7 
-    monthly_profit = daily_profit * 30 #oikik 
+
+    daily_profit = round(Decimal(instance.percentage/100) * request.user.profile.balance)
+    weekly_profit = round(daily_profit * 7 )
+    monthly_profit = round(daily_profit * 30) #oikik 
     context = {'segment': 'index', 'instance':instance, 'daily_profit': daily_profit,'weekly_profit':weekly_profit, 'monthly_profit':monthly_profit}
 
     html_template = loader.get_template('home/index.html')

@@ -49,7 +49,7 @@
                     </div>
                   </div>
                   <p class="mt-3 mb-0 text-sm">
-                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>{{ instance.percentage}}%</span>
+                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>{{instance.percentage}}%</span>
                     <!-- <span class="text-nowrap">last 30 days</span> -->
                   </p>
                 </div>
@@ -62,7 +62,7 @@
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Daily earning</h5>
-                      <span class="h2 font-weight-bold mb-0">{{ daily_profit }}</span>
+                      <span class="h2 font-weight-bold mb-0">{{daily_profit}}</span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
@@ -94,8 +94,8 @@
                     </div>
                   </div>
                   <p class="mt-3 mb-0 text-sm">
-                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{ request.user.profile.balance }}</span>
-                    <span class="text-nowrap">Your bid</span>
+                    <span class="text-success font-weight-bold mr-2"><i class="fa fa-arrow-up"></i> {{ request.user.profile.balance }}</span>
+                    <span class="text-nowrap font-weight-bold" >Your bid</span>
                   </p>
                   
                 </div>
